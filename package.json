@@ -5,9 +5,9 @@
   "main": "dist/vj-auth-form.js",
   "module": "dist/vj-auth-form.js",
   "scripts": {
-    "dev":"webpack --mode development --watch",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production && npm run build-ie",
-    "build-ie":"./node_modules/.bin/babel ./dist/vj-auth-form.js --out-file ./dist/vj-auth-form-build.js"
+    "build-ie": "./node_modules/.bin/babel ./dist/vj-auth-form.js --out-file ./dist/vj-auth-form-build.js"
   },
   "keywords": [
     "vj-auth-form",
@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/kksrini89/vj-auth-form/issues"
   },
-  "homepage": "https://github.com/kksrini89/vj-auth-form#readme"
+  "homepage": "https://github.com/kksrini89/vj-auth-form#readme",
+  "dependencies": {
+    "@ionic/core": "^5.0.7"
+  }
 }

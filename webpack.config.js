@@ -15,6 +15,11 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   module: {
     rules: [
       {
@@ -36,11 +41,13 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new copyWebpackPlugin([{
-      context: 'node_modules/@webcomponents/webcomponentsjs',
-      from: '**/*.js',
-      to: 'webcomponents'
-    }]),
+    new copyWebpackPlugin([
+      {
+        context: 'node_modules/@webcomponents/webcomponentsjs',
+        from: '**/*.js',
+        to: 'webcomponents'
+      }
+    ]),
     new miniCSSExtractPlugin({
       filename: 'style.css'
     }),

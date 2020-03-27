@@ -9,7 +9,7 @@
 # Usage
 
 ```html
-
+<vj-auth-form></vj-auth-form>
 ```
 
 ```javascript
