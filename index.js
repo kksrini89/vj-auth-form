@@ -2,9 +2,14 @@ import { LoginComponent } from './Components/Login.js';
 import { RegisterComponent } from './Components/Register.js';
 
 const tmpl = document.createElement('template');
-tmpl.innerHTML = /*html*/`
-<div class="container">
-  <ion-tabs>
+tmpl.innerHTML = /*html*/ `
+<style>
+  .container {
+    max-width: 25%;
+  }
+</style>
+
+  <ion-tabs class="container">
     <ion-tab tab="Login">
       <vj-login></vj-login>
     </ion-tab>
@@ -12,11 +17,10 @@ tmpl.innerHTML = /*html*/`
       <vj-register></vj-register>
     </ion-tab>
     <ion-tab-bar slot="top">
-      <ion-tab-button tab="Login"></ion-tab-button>
-      <ion-tab-button tab="Register"></ion-tab-button>
+      <ion-tab-button tab="Login">Login</ion-tab-button>
+      <ion-tab-button tab="Register">Register</ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-</div>
 `;
 
 class AuthFormComponent extends HTMLElement {

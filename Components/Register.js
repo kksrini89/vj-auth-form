@@ -3,7 +3,24 @@ const tmpl = document.createElement('template');
 tmpl.innerHTML =`
   <style></style>
   <div class="register">
-    REGISTER
+    <ion-card>      
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" clear-input value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" clear-input value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" clear-input value=""></ion-input>
+        </ion-item>
+        <br />
+        <ion-button expand="block" >Register</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 `;
 

@@ -2,15 +2,18 @@ const tmpl = document.createElement('template');
 tmpl.innerHTML =`
   <style></style>
   <div class="login">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
-      </ion-card-header>
-
+    <ion-card>      
       <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" clear-input value=""></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" clear-input value=""></ion-input>
+        </ion-item>
+        <br />
+        <ion-button expand="block">Login</ion-button>
       </ion-card-content>
     </ion-card>
   </div>
