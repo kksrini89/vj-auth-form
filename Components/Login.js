@@ -46,10 +46,9 @@ export class LoginComponent extends HTMLElement {
   attributeChangedCallback() { }
   
   // Methods
-  onLogin() { 
-    console.log({ email: this.$emailInput.value, password: this.$passwordInput.value });
-    
-    this.dispatchEvent(new CustomEvent('onLogin', { detail: { email: this.$emailInput, password: this.$passwordInput } }));
+  onLogin() {    
+    this.dispatchEvent(new CustomEvent('onLogin',
+      { detail: { email: this.$emailInput.value, password: this.$passwordInput.value } }));
   }
 }
 

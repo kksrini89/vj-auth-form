@@ -51,16 +51,10 @@ export class RegisterComponent extends HTMLElement {
   attributeChangedCallback() { }
   
   // Methods
-  onRegister() { 
-    console.log({
-      email: this.$emailInput.value,
-      password: this.$passwordInput.value,
-      confirmPassword: this.$confirmPasswordInput.value
-    });
-    
+  onRegister() {
     this.dispatchEvent(new CustomEvent('onRegister', {
       detail: {
-        email: this.$emailInput, password: this.$passwordInput,
+        email: this.$emailInput.value, password: this.$passwordInput.value,
         confirmPassword: this.$confirmPasswordInput.value  }
     }));
   }

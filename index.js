@@ -11,10 +11,10 @@ tmpl.innerHTML = /*html*/ `
 
   <ion-tabs class="container">
     <ion-tab tab="Login">
-      <vj-login></vj-login>
+      <vj-login id="loginComp"></vj-login>
     </ion-tab>
     <ion-tab tab="Register">
-      <vj-register></vj-register>
+      <vj-register id="registerComp"></vj-register>
     </ion-tab>
     <ion-tab-bar slot="top">
       <ion-tab-button tab="Login">Login</ion-tab-button>
@@ -26,21 +26,46 @@ tmpl.innerHTML = /*html*/ `
 class AuthFormComponent extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(tmpl.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' });
   }
-
+  
   static get observedAttributes() {
     return [''];
   }
+  
+  connectedCallback() {
+    this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
+    
+    // element references
+    this.$loginComp = this._shadowRoot.querySelector('#loginComp');
+    this.$registerComp = this._shadowRoot.querySelector('#registerComp');
 
-  connectedCallback() {}
+    this.$loginComp.addEventListener('onLogin', this.onLoginClicked.bind(this));
+    this.$registerComp.addEventListener('onRegister', this.onRegisterClicked.bind(this));
+  }
 
   disconnectedCallback() {}
 
   adoptedCallback() {}
 
-  attributeChangedCallback() {}
+  attributeChangedCallback() { }
+  
+  // Event Handlers
+  onLoginClicked(e) {
+    try {
+      this.dispatchEvent(new CustomEvent('onLogin', { detail: e.detail }));
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  onRegisterClicked(e) {
+    try {
+      this.dispatchEvent(new CustomEvent('onRegister', { detail: e.detail }));
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 customElements.define('vj-auth-form', AuthFormComponent);
